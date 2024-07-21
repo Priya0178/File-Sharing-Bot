@@ -60,7 +60,7 @@ async def get_messages(client, message_ids):
         messages.extend(msgs)
     return messages
     await asyncio.sleep(5)
-    await get_messages.delete()
+    await messages.delete()
 
 async def get_message_id(client, message):
     if message.forward_from_chat:
