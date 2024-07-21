@@ -40,8 +40,6 @@ async def decode(base64_string):
 
 async def get_messages(client, message_ids):
     messages = []
-    await asyncio.sleep(5)
-    await messages.delete()
     total_messages = 0
     while total_messages != len(message_ids):
         temb_ids = message_ids[total_messages:total_messages+200]
@@ -60,7 +58,9 @@ async def get_messages(client, message_ids):
             pass
         total_messages += len(temb_ids)
         messages.extend(msgs)
-    return messages
+    return
+    await asyncio.sleep(5)
+    await messages.delete()
 
 async def get_message_id(client, message):
     if message.forward_from_chat:
