@@ -58,10 +58,8 @@ async def get_messages(client, message_ids):
             pass
         total_messages += len(temb_ids)
         messages.extend(msgs)
-    return
-    await asyncio.sleep(5)
-    await messages.delete()
-
+    return messages
+    
 async def get_message_id(client, message):
     if message.forward_from_chat:
         if message.forward_from_chat.id == client.db_channel.id:
