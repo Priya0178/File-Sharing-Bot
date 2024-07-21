@@ -93,6 +93,7 @@ async def start_command(client: Client, message: Message):
         for sent_msg in filesent:
             try:
                 await sent_msg.delete()
+                await warning.delete()
             except:
                 pass
 
