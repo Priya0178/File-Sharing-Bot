@@ -63,8 +63,6 @@ async def start_command(client: Client, message: Message):
             return
         await asyncio.sleep(1)    
         await temp_msg.delete()
-        await asyncio.sleep(5)
-        await messages.delete()
 
         for msg in messages:
 
