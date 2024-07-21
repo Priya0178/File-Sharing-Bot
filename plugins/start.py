@@ -20,6 +20,7 @@ from database.database import add_user, del_user, full_userbase, present_user
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
+    filesent = []
     id = message.from_user.id
     if not await present_user(id):
         try:
@@ -63,7 +64,6 @@ async def start_command(client: Client, message: Message):
             return
         await asyncio.sleep(1)    
         await temp_msg.delete()
-
         for msg in messages:
 
             if bool(CUSTOM_CAPTION) & bool(msg.document):
@@ -77,13 +77,33 @@ async def start_command(client: Client, message: Message):
                 reply_markup = None
 
             try:
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                sent_msg = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                filesent.append(sent_msg)
                 await asyncio.sleep(0.5)
             except FloodWait as e:
                 await asyncio.sleep(e.x)
-                await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                sent_msg = await msg.copy(chat_id=message.from_user.id, caption = caption, parse_mode = ParseMode.HTML, reply_markup = reply_markup, protect_content=PROTECT_CONTENT)
+                filesent.append(sent_msg)
             except:
                 pass
+                
+        warning = await message.reply(f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\n"
+                                      "ᴛʜɪꜱ ꜰɪʟᴇ/ᴠɪᴅᴇᴏ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ<b><u>10 ᴍɪɴᴜᴛᴇꜱ</u> 🫥 <i></b>"
+                                      "(ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ɪꜱꜱᴜᴇꜱ)</i>.\n\n"
+                                      "<b><i>ᴘʟᴇᴀꜱᴇ ꜰᴏʀᴡᴀʀᴅ ᴛʜɪꜱ ꜰɪʟᴇ ᴛᴏ ꜱᴏᴍᴇᴡʜᴇʀᴇ ᴇʟꜱᴇ ᴀɴᴅ ꜱᴛᴀʀᴛ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴛʜᴇʀᴇ</i></b>")
+        
+        await asyncio.sleep(600) # add time in seconds
+        for sent_msg in filesent:
+            try:
+                await sent_msg.delete()
+            except:
+                pass
+
+        # Update the warning message after deletion
+        try:
+            await warning.edit("✅ <b>ʏᴏᴜʀ ᴠɪᴅᴇᴏ / ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ !!</b>")
+        except:
+            pass
         return
     else:
         reply_markup = InlineKeyboardMarkup(
