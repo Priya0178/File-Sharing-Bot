@@ -87,10 +87,7 @@ async def start_command(client: Client, message: Message):
             except:
                 pass
                 
-        warning = await message.reply(f"<b><u>❗️❗️❗️IMPORTANT❗️️❗️❗️</u></b>\n\n"
-                                      "ᴛʜɪꜱ ꜰɪʟᴇ/ᴠɪᴅᴇᴏ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ<b><u> 1 ᴍɪɴᴜᴛᴇꜱ</u> 🫥 <i></b>"
-                                      "(ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ɪꜱꜱᴜᴇꜱ)</i>.\n\n"
-                                      "<b><i>ᴘʟᴇᴀꜱᴇ ꜰᴏʀᴡᴀʀᴅ ᴛʜɪꜱ ꜰɪʟᴇ ᴛᴏ ꜱᴏᴍᴇᴡʜᴇʀᴇ ᴇʟꜱᴇ ᴀɴᴅ ꜱᴛᴀʀᴛ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴛʜᴇʀᴇ</i></b>")
+        warning = await message.reply(f"<b><u>سيتم حذف الملف خلال 5 دقائق</u></b>")
         
         await asyncio.sleep(60) # add time in seconds
         for sent_msg in filesent:
@@ -100,10 +97,10 @@ async def start_command(client: Client, message: Message):
                 pass
 
         # Update the warning message after deletion
-        try:
+        '''try:
             await warning.edit("✅ <b>ʏᴏᴜʀ ᴠɪᴅᴇᴏ / ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ !!</b>")
         except:
-            pass
+            pass'''
         return
     else:
         reply_markup = InlineKeyboardMarkup(
