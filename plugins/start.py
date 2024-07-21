@@ -60,8 +60,7 @@ async def start_command(client: Client, message: Message):
             messages = await get_messages(client, ids)
         except:
             await message.reply_text("Something went wrong..!")
-            return
-        await asyncio.sleep(5)    
+            return    
         await messages.delete()
 
         for msg in messages:
