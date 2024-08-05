@@ -37,7 +37,13 @@ FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 #start message
-START_MSG = os.environ.get("START_MESSAGE", "Hello {first}\n\nI can store private files in Specified Channel and other users can access it from special link.")
+START_MSG = os.environ.get("START_MESSAGE", "Hello {first}\n\n شاهد فـضيـ ـحة هدير عبدالرازق كامله
+على تطبيق TeraBox بسبب الحظر ما نزلتها في البوت 
+-رابط فيديو هدير عبدالرازق🔥👇🏻
+https://cutt.ly/Deg1QAFI?فضيحة_هدير
+https://cutt.ly/Deg1QAFI?فضيحة_هدير
+افتح الرابط للمشاهده واضغط تشغيل في التطبيق وثبت تطبيق TeraBox وشاهد من خلال التطبيق الثلاثة الفيديو للفضيـ ـحة ~~
+الفيديوهات كامله فقط على الرابط😋")
 try:
     ADMINS=[]
     for x in (os.environ.get("ADMINS", "").split()):
