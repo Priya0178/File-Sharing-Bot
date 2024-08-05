@@ -119,6 +119,7 @@ async def start_command(client: Client, message: Message):
             quote = True
         )
         return
+        await asyncio.sleep(10)
 
     
 #=====================================================================================##
