@@ -118,9 +118,8 @@ async def start_command(client: Client, message: Message):
             disable_web_page_preview = True,
             quote = True
         )
-        return
         await asyncio.sleep(10)
-
+        return
     
 #=====================================================================================##
 
