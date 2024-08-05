@@ -107,6 +107,7 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🥵فضيحة هدير كامله", url=f'https://t.me/VideosIMUBOT')],[InlineKeyboardButton("🔥🔞قناة الفضيحة", url=f'https://t.me/VideosIMUBOT')]]
         )
         await message.reply_text(
+            text = START_MSG
             reply_markup = reply_markup,
             disable_web_page_preview = True,
             quote = True
