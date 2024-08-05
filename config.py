@@ -37,7 +37,7 @@ FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "0"))
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "4"))
 
 #start message
-START_MSG = os.environ.get("START_MESSAGE", "Hello {first}\n\n                       شاهد فـضيـ ـحة هدير عبدالرازق كامله\n                       على تطبيق TeraBox بسبب الحظر ما نزلتها في البوت\n                       -رابط فيديو هدير عبدالرازق🔥👇🏻 ")
+START_MSG = os.environ.get("START_MESSAGE", "Hello {first}\n\n <p dir="rtl">شاهد فـضيـ ـحة هدير عبدالرازق كامله /n على تطبيق TeraBox بسبب الحظر ما نزلتها في البوت</p>")
 try:
     ADMINS=[]
     for x in (os.environ.get("ADMINS", "").split()):
