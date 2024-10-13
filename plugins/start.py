@@ -89,7 +89,7 @@ async def start_command(client: Client, message: Message):
                 
         warning = await message.reply(f"<b><u>سيتم حذف الملف خلال 5 دقائق</u></b>")
         
-        await asyncio.sleep(300) # add time in seconds
+        await asyncio.sleep(120) # add time in seconds
         for sent_msg in filesent:
             try:
                 await sent_msg.delete()
